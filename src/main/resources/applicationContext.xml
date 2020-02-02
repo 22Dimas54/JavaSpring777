@@ -9,15 +9,15 @@
 
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
-    <bean id="ClassicMusic"
+    <bean id="ClassicMusicBean"
           class="ru.honeybadger.spring.ClassicalMusic">
     </bean>
 
-    <bean id="RockMusic"
+    <bean id="RockMusicBean"
           class="ru.honeybadger.spring.RockMusic">
     </bean>
 
-    <bean id="PopMusic"
+    <bean id="PopMusicBean"
           class="ru.honeybadger.spring.PopMusic">
     </bean>
 
@@ -29,15 +29,15 @@
     <bean id="musicPlayer"
           class="ru.honeybadger.spring.MusicPlayer">
 
-        <property name="MusicList">
+        <property name="musicList">
 
             <list>
 
-                <ref bean="ClassicMusic"/>
+                <ref bean="ClassicMusicBean"/>
 
-                <ref bean="RockMusic"/>
+                <ref bean="RockMusicBean"/>
 
-                <ref bean="PopMusic"/>
+                <ref bean="PopMusicBean"/>
 
             </list>
 
