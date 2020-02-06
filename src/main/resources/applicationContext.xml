@@ -7,14 +7,16 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:musicPlayer.properties"/>
+        <context:component-scan base-package="ru.honeybadger.spring"/>
+
+    <!--<context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="classicMusicBean"
-          class="ru.honeybadger.spring.ClassicalMusic"
-          init-method="doMyInit"
-          destroy-method="doMyDestroy"
-          factory-method="getClassicalMusic">
-        <!--scope="prototype"-->
+          class="ru.honeybadger.spring.ClassicalMusic">
+        init-method="doMyInit"
+        destroy-method="doMyDestroy"
+        factory-method="getClassicalMusic">
+      scope="prototype"
     </bean>
 
     <bean id="rockMusicBean"
@@ -51,5 +53,5 @@
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
-
+-->
 </beans>
