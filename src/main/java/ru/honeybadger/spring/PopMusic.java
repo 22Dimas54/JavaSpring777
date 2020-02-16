@@ -3,20 +3,22 @@ package ru.honeybadger.spring;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class PopMusic implements Music {
+    private List<String> songs = new ArrayList<>();
 
-    private PopMusic() {
+    // Блок инициализации объекта (англ. Instance initialization block)
+    // Выполняется каждый раз, когда создается объект класса
+    {
+        songs.add("Diamonds (BLAST BEAT COVER by EUGENE MAZUR)");
+        songs.add("Burn");
+        songs.add("All the Wiser");
     }
 
     @Override
-    public String getSong() {
-        ArrayList<String> listSong = new ArrayList<String>();
-        listSong.add("PopMusic song 1");
-        listSong.add("PopMusic song 2");
-        listSong.add("PopMusic song 3");
-        return listSong.get((int) (Math.random() * 3));
+    public List<String> getSongs() {
+        return songs;
     }
-
 }
