@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Component
+//@Component
 public class MusicPlayer {
 
     @Value("${musicPlayer.name}")
@@ -27,11 +27,16 @@ public class MusicPlayer {
 
     private ClassicalMusic classicalMusic;
     private RockMusic rockMusic;
+    private PopMusic popMusic;
+    public List<List<Music>> list;
 
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
+    //@Autowired
+    //public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic,PopMusic popMusic) {
+    public MusicPlayer(List<List<Music>> list) {
+        this.list = list;
+//        this.classicalMusic = classicalMusic;
+//        this.rockMusic = rockMusic;
+//        this.popMusic = popMusic;
     }
 
     public void playMusic(GenerOfMusic genre) {
@@ -42,10 +47,24 @@ public class MusicPlayer {
 
         if (genre == GenerOfMusic.CLASSICAL) {
             // случайная классическая песня
-            System.out.println(classicalMusic.getSongs().get(randomNumber));
-        } else {
+            System.out.println(list.get(0).get(randomNumber));
+        } else if (genre == GenerOfMusic.POP) {
+            // случайная поп песня
+            System.out.println(list.get(1).get(randomNumber));
+        }else {
             // случайная рок песня
-            System.out.println(rockMusic.getSongs().get(randomNumber));
+            System.out.println(list.get(2).get(randomNumber));
         }
+
+//        if (genre == GenerOfMusic.CLASSICAL) {
+//            // случайная классическая песня
+//            System.out.println(classicalMusic.getSongs().get(randomNumber));
+//        } if (genre == GenerOfMusic.POP) {
+//            // случайная классическая песня
+//            System.out.println(popMusic.getSongs().get(randomNumber));
+//        }else {
+//            // случайная рок песня
+//            System.out.println(rockMusic.getSongs().get(randomNumber));
+//        }
     }
 }

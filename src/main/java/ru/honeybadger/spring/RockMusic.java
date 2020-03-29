@@ -1,11 +1,9 @@
 package ru.honeybadger.spring;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+//@Component
 public class RockMusic implements Music {
     private List<String> songs = new ArrayList<>();
 
@@ -18,7 +16,7 @@ public class RockMusic implements Music {
     }
 
     @Override
-    public List<String> getSongs() {
+    public List<String> getSongs(int i) {
         return songs;
     }
 }
